@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2563EB;
+  --color-secondary: #FBBF24;
+  --color-surface: #F8FAFC;
+  --color-ink: #0F172A;
+}
+
+* {
+  font-family: Outfit;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 35%);
+  color: #0f172a;
+}
+
+.font-playfair {
+  font-family: Playfair !important;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: fadeUp 700ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+.delay-1 {
+  animation-delay: 80ms;
+}
+
+.delay-2 {
+  animation-delay: 160ms;
+}
+
+.delay-3 {
+  animation-delay: 240ms;
+}
+
+.delay-4 {
+  animation-delay: 320ms;
+}
+
+.card-lift {
+  transition: transform 280ms ease, box-shadow 280ms ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px rgba(15, 23, 42, 0.12);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    animation: none;
+    opacity: 1;
+  }
+
+  .card-lift,
+  .card-lift:hover {
+    transition: none;
+    transform: none;
+    box-shadow: none;
+  }
+}
