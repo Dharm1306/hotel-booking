@@ -87,8 +87,20 @@ app.use((err, req, res, next) => {
 });
 
 /* ✅ SERVER START */
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
+// Handle graceful shutdown
+process.on("SIGTERM", () => {
+  console.log("SIGTERM signal received: closing HTTP server");
+  server.close(() => {
+    console.log("HTTP server closed");
+    process.exit(0);
+  });
+});
+
+// Export for Vercel serverless
+export default app;
