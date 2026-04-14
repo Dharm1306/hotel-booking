@@ -20,6 +20,7 @@ const allowedOrigins = [
   "http://127.0.0.1:5173",
   "http://localhost:4173",
   "https://localhost:5173",
+  "https://hotel-booking-2a3cwjcwt-dharm1306s-projects.vercel.app",
 ];
 
 /* ✅ CORS CONFIG */
